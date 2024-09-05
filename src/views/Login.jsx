@@ -1,5 +1,5 @@
 import React from 'react';
-import FormRegister from '../components/FormLogin'
+import FormLogin from '../components/FormLogin'
 import '../style/Login.css'
 
 const Login = () => {
