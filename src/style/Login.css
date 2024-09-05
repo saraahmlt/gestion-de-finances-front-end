@@ -30,7 +30,6 @@ input {
     width: 500px;
     height: 25px;
     margin-top: 10px;
-    color: white;
     font-family: Poppins;
     font-weight: 400;
 }
@@ -51,6 +50,7 @@ input {
     color: #161622;
     font-size: 16px;
     margin-bottom: 10px;
+    background-color: white;
 }
 
 .btnForm-mt-10-btn-register {

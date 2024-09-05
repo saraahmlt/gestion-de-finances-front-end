@@ -1,14 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,900;1,800;1,900&display=swap');
 
 
-
-input {
+.page-background-register{
     background-color: #161622;
-    border: solid 1px white;
-    width: 500px;
-    height: 25px;
-    margin-top: 10px;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-register {
     color: white;
     font-family: Poppins;
-    font-weight: 400;
+    font-weight: 500;
+    font-size:  32px;
+}
+
+.input-input-bordered-w-full-registe {
+    color: white;
+}
+
+input {
+    margin-bottom: 40px;
+    color: white;
+}
+
+
+.btnForm-mt-10-btn-registerr {
+    width: 510px;
+    height: 60px;
+    border-radius: 15px;
+    margin-top: 40px;
+    border: none;
+    font-family: Poppins;
+    font-weight: 700;
+    color: #161622;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.btnForm-mt-10-btn-loginn {
+    background-color: #161622;
+    border: none;
+    color: white;
+   
+    
+}
+
+.btnForm-mt-10-btn-loginn a {
+    color: white;
 }
