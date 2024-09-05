@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../style/Register.css'
 
 
 const FormRegister = () => {
@@ -63,7 +64,7 @@ const FormRegister = () => {
           />
           {errors.name && <p style={{ color: 'red' }}>{errors.name[0]}</p>}
         </div>
-        <div className="form-group">
+        <div className="form-group-password">
           <input 
             type="email" 
             name="email" 

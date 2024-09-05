@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,900;1,800;1,900&display=swap');
+
+.page-background{
+    background-color: #161622;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-login {
+    color: white;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size:  32px;
+}
+
+label {
+    color: white;
+    font-family: Poppins;
+    font-weight: 400;
+   
+}
+
+input {
+    background-color: #161622;
+    border: solid 1px white;
+    width: 500px;
+    height: 25px;
+    margin-top: 10px;
+    color: white;
+    font-family: Poppins;
+    font-weight: 400;
+}
+
+.form-group-email{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.btnForm-mt-10-btn-login {
+    width: 510px;
+    height: 60px;
+    border-radius: 15px;
+    margin-top: 40px;
+    border: none;
+    font-family: Poppins;
+    font-weight: 700;
+    color: #161622;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btnForm-mt-10-btn-register {
+    background-color: #161622;
+    border: none;
+    color: white;
+   
+    
+}
+
+.btnForm-mt-10-btn-register a {
+    color: white;
+}
+
+
+
+
