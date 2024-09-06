@@ -60,7 +60,9 @@ const FormLogin = () => {
           {message && <p style={{ color: 'red' }}>{message}</p>}
           <form onSubmit={handleSubmit}>
             <div className="form-group-email">
-              <label htmlFor="email">Email</label>
+                <div>
+                 <label htmlFor="email">Email</label>
+                </div>
               <input 
                 type="email" 
                 name="email" 
@@ -71,7 +73,9 @@ const FormLogin = () => {
               {errors.email && <p style={{ color: 'red' }}>{errors.email[0]}</p>}
             </div>
             <div className="form-group">
-              <label htmlFor="password">Mot de passe</label>
+              <div>
+                <label htmlFor="password">Mot de passe</label>
+              </div>
               <input 
                 type="password" 
                 name="password" 

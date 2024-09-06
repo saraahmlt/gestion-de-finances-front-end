@@ -6,7 +6,7 @@ import Login from './components/FormLogin';
 import ListTransactions from './components/ListingTransactions';
 import CreateTransactions from './components/FormCreateTransactions';
 import EditTransactions from './components/FormEditTransactions';
-
+import ShowTransaction from './components/ShowTransaction';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/transactions" element={<ListTransactions />} />
         <Route path="/add-transactions" element={<CreateTransactions />} />
         <Route path="/transactions/:id" element={<EditTransactions />} />
-
+        <Route path="/show-transaction/:id" element={<ShowTransaction />} />
         
 
       </Routes>
