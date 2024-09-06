@@ -8,7 +8,7 @@ const TransactionChart = ({ data }) => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
-        // Créez un gradient lorsque le canvas est monté
+       
         if (canvasRef.current) {
             const ctx = canvasRef.current.getContext('2d');
             if (ctx) {
@@ -74,7 +74,6 @@ const TransactionChart = ({ data }) => {
 
     return (
         <div className="doughnut-chart-container" style={{ width: '400px', height: '400px' }}>
-            <h3>Graphique des transactions</h3>
             <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
             <Doughnut data={chartData} options={options} />
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import TransactionChart from './TransactionChart';
 
 const ShowTransaction = () => {
@@ -46,6 +46,11 @@ const ShowTransaction = () => {
 
     return (
         <div className="page-background-transaction" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+             <div className="create-transaction-button">
+               <Link to="/transactions">
+                 <button>Retour</button>
+               </Link>
+             </div>
             <div className="card card-compact bg-base-100 w-96 shadow-xl" style={{ marginBottom: '20px' }}>
                 <div className="card-body">
                     <h2 className="card-title">{transaction.name}</h2>

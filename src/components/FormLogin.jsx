@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../style/Login.css';
 
 const FormLogin = () => {
@@ -11,6 +11,8 @@ const FormLogin = () => {
 
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate();  // Initialisez useNavigate
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +38,7 @@ const FormLogin = () => {
             password: '',
           });
           setErrors({});
+          navigate('/transactions');  // Redirige vers la page des transactions
         } else {
           setMessage('Token non reçu. Vérifiez la réponse de l\'API.');
         }
@@ -60,9 +63,9 @@ const FormLogin = () => {
           {message && <p style={{ color: 'red' }}>{message}</p>}
           <form onSubmit={handleSubmit}>
             <div className="form-group-email">
-                <div>
-                 <label htmlFor="email">Email</label>
-                </div>
+              <div>
+                <label htmlFor="email">Email</label>
+              </div>
               <input 
                 type="email" 
                 name="email" 
@@ -99,6 +102,7 @@ const FormLogin = () => {
 };
 
 export default FormLogin;
+
 
 
 

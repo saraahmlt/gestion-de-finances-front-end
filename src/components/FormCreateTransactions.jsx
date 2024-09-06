@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';  // Importez useNavigate
 
 const FormCreateTransactions = () => {
   const [name, setName] = useState('');
@@ -10,6 +11,8 @@ const FormCreateTransactions = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+
+  const navigate = useNavigate();  // Initialisez useNavigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +44,10 @@ const FormCreateTransactions = () => {
       setAmount('');
       setDate('');
       setDescription('');
+      
+      setTimeout(() => {
+        navigate('/transactions');  
+      }, 1000); 
     })
     .catch(error => {
       console.error('Erreur lors de la création de la transaction:', error);
