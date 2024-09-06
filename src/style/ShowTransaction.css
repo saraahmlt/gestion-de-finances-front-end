@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,900;1,800;1,900&display=swap');
+.page-background-transaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0e0e24;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.create-transaction-button button {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-transaction-button button:hover {
+    background-color: #FFFFFF;
+    color: #1C1E21;
+}
+
+.card.card-compact {
+    background-color: #191936;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-card-black {
+    color: #CFCFCF;
+    margin-bottom: 10px;
+}
+
+.text-card {
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.doughnut-chart-container {
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}

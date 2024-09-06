@@ -1,10 +1,11 @@
 import React from 'react';
 import ListingTransactions from '../components/ListingTransactions'
+import '../style/ListingTransactions.css';
 
 
 const ListTransactions = () => {
     return (
-        <div>
+        <div className="page-background-transactions">
             <ListingTransactions />
         </div>
     );

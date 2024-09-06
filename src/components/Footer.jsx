@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import '../style/Footer.css';
 
 
 const Footer = () => {
@@ -8,7 +10,7 @@ const Footer = () => {
             <footer className="footer bg-base-200 text-base-content p-10 footer-top">
                 <Link to="/" className="flex items-center">
                     <img
-                        src="/images/logo.png"
+                        src="/images/Design sans titre (1).svg"
                         alt="Logo"
                         className="h-12 lg:h-16"
                     />

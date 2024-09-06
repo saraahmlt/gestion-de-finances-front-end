@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import TransactionChart from './TransactionChart';
+import '../style/ShowTransaction.css';
 
 const ShowTransaction = () => {
     const { id } = useParams();

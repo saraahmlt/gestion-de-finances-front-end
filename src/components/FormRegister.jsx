@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import '../style/Register.css'
-
+import { Link, useNavigate } from 'react-router-dom';
+import '../style/Register.css';
 
 const FormRegister = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +13,7 @@ const FormRegister = () => {
 
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +36,8 @@ const FormRegister = () => {
           password_confirmation: '',
         });
         setErrors({});
+
+        navigate('/login'); 
       })
       .catch(error => {
         if (error.response && error.response.data) {
@@ -49,77 +51,78 @@ const FormRegister = () => {
 
   return (
     <div className="page-background-register">
-    <div className="container-register">
-      <div className="form-register">
-        <h1 className="title-register">S’enregistrer</h1>
-        {message && <p style={{ color: 'red' }}>{message}</p>}
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <div>
-            <label htmlFor="name">Nom</label>
+      <div className="container-register">
+        <div className="form-register">
+          <h1 className="title-register">S’enregistrer</h1>
+          {message && <p style={{ color: 'red' }}>{message}</p>}
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <div>
+                <label htmlFor="name">Nom</label>
+              </div>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="input-input-bordered-w-full-register"
+              />
+              {errors.name && <p style={{ color: 'red' }}>{errors.name[0]}</p>}
             </div>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="input-input-bordered-w-full-register"
-            />
-            {errors.name && <p style={{ color: 'red' }}>{errors.name[0]}</p>}
-          </div>
-          <div className="form-group">
-            <div>
-            <label htmlFor="email">Email</label>
+            <div className="form-group">
+              <div>
+                <label htmlFor="email">Email</label>
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="input-input-bordered-w-full-register"
+              />
+              {errors.email && <p style={{ color: 'red' }}>{errors.email[0]}</p>}
             </div>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="input-input-bordered-w-full-register"
-            />
-            {errors.email && <p style={{ color: 'red' }}>{errors.email[0]}</p>}
-          </div>
-          <div className="form-group">
-            <div>
-            <label htmlFor="password">Mot de passe</label>
+            <div className="form-group">
+              <div>
+                <label htmlFor="password">Mot de passe</label>
+              </div>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="input-input-bordered-w-full-register"
+              />
+              {errors.password && <p style={{ color: 'red' }}>{errors.password[0]}</p>}
             </div>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="input-input-bordered-w-full-register"
-            />
-            {errors.password && <p style={{ color: 'red' }}>{errors.password[0]}</p>}
-          </div>
-          <div className="form-group">
-            <div>
-            <label htmlFor="password_confirmation">Confirmer le mot de passe</label>
+            <div className="form-group">
+              <div>
+                <label htmlFor="password_confirmation">Confirmer le mot de passe</label>
+              </div>
+              <input
+                type="password"
+                id="password_confirmation"
+                name="password_confirmation"
+                value={formData.password_confirmation}
+                onChange={handleChange}
+                className="input-input-bordered-w-full-register"
+              />
             </div>
-            <input
-              type="password"
-              id="password_confirmation"
-              name="password_confirmation"
-              value={formData.password_confirmation}
-              onChange={handleChange}
-              className="input-input-bordered-w-full-register"
-            />
-          </div>
-          <button type="submit" className="btnForm-mt-10-btn-registerr">S’enregistrer</button>
-          <div>
-          <button className="btnForm-mt-10-btn-loginn">
-            <Link to="/login">Vous avez déjà un compte ? Se connecter</Link>
-          </button>
-          </div>
-        </form>
+            <button type="submit" className="btnForm-mt-10-btn-registerr">S’enregistrer</button>
+            <div>
+              <button className="btnForm-mt-10-btn-loginn">
+                <Link to="/login">Vous avez déjà un compte ? Se connecter</Link>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-   </div>
   );
 };
 
 export default FormRegister;
+

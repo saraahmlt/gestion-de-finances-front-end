@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,900;1,800;1,900&display=swap');
+
+.page-background-create-transaction {
+    background-color: #0e0e24;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-create-transaction {
+    background-color: #191936;
+    padding: 40px;
+    padding-right: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.title-create-transaction {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.container-create-transaction label {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-create-transaction input,
+.container-create-transaction select,
+.container-create-transaction textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.container-create-transaction input::placeholder,
+.container-create-transaction textarea::placeholder {
+    color: #b5b5b5;
+}
+
+.container-create-transaction button {
+    width: 420px;
+    background-color: white;
+    color: #0e0e24;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.container-create-transaction button:hover {
+    background-color: #f0f0f0;
+}
+
+.container-create-transaction select {
+    width: 420px;
+}

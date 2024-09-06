@@ -2,67 +2,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,900;1,800;1,900&display=swap');
 
-.page-background{
-    background-color: #161622;
-    min-height: 100vh; 
+.page-background {
+    background-color: #0e0e24;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px; 
 }
 
 .title-login {
     color: white;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-weight: 500;
-    font-size:  32px;
+    font-size: 32px;
+    text-align: center; 
+    margin-bottom: 20px; 
 }
 
 label {
     color: white;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-weight: 400;
-   
+    display: block; 
+    margin-bottom: 5px; 
 }
 
 input {
-    background-color: #161622;
+    background-color: #0e0e24;
     border: solid 1px white;
-    width: 500px;
+    width: 350px; 
+    max-width: 500px; 
     height: 25px;
     margin-top: 10px;
-    font-family: Poppins;
+    padding: 5px; 
+    font-family: Poppins, sans-serif;
     font-weight: 400;
+    color: white; 
 }
 
-.form-group-email{
+.form-group-email {
     margin-top: 50px;
     margin-bottom: 40px;
+    width: 100%; 
+    max-width: 500px; 
 }
 
 .btnForm-mt-10-btn-login {
-    width: 510px;
+    width: 360px; 
+    max-width: 500px; 
     height: 60px;
     border-radius: 15px;
     margin-top: 40px;
     border: none;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-weight: 700;
     color: #161622;
     font-size: 16px;
     margin-bottom: 10px;
     background-color: white;
+    cursor: pointer; 
 }
 
 .btnForm-mt-10-btn-register {
-    background-color: #161622;
+    background-color: #0e0e24;
     border: none;
     color: white;
-   
-    
+    width: 100%; 
+    max-width: 510px; 
+    text-align: center; 
+    margin-top: 20px;
+    cursor: pointer; 
 }
 
 .btnForm-mt-10-btn-register a {
     color: white;
+    text-decoration: none; 
+    display: block; 
+    padding: 15px; 
+}
+
+
+
+@media (max-width: 768px) {
+    .title-login {
+        font-size: 24px; 
+    }
+
+    input {
+        width: 100%; 
+    }
+
+    .btnForm-mt-10-btn-login, .btnForm-mt-10-btn-register {
+        width: 100%; 
+        font-size: 14px; 
+    }
+
+    .form-group-email {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 }
 
 

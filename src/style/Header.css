@@ -1,0 +1,125 @@
+header {
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-start .flex.items-center img {
+    height: 70px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-start .flex.items-center img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-center {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-center p a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar-center p a:hover {
+    color: #0e0e24;
+}
+
+.btn {
+    background-color: #00C2C7;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #009ea2;
+    transform: scale(1.05);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px; 
+    right: 20px;
+    background-color: #161622;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    flex-direction: column;
+    z-index: 1000;
+    width: 200px;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background-color: #333;
+}
+
+.dropdown-menu.active {
+    display: flex;
+}
+
+@media (max-width: 1024px) {
+    .navbar-center {
+        display: none; 
+    }
+    
+    .menu-toggle {
+        display: block; 
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-start .flex.items-center img {
+        height: 36px;
+    }
+    
+    header {
+        padding: 5px 10px;
+    }
+}
+
+
+
+
+
+
