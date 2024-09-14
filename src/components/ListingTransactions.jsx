@@ -3,71 +3,71 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../style/ListingTransactions.css';
 
-
 const ListingTransactions = () => {
-    const [transactions, setTransactions] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-  
-    useEffect(() => {
-      const token = localStorage.getItem('authToken'); 
-      console.log('Token récupéré:', token); 
-  
-      if (token) {
-        axios.get('http://localhost:8000/api/v1/transactions', {
-          headers: {
-            'Authorization': `Bearer ${token}`, 
-          },
-        })
-        .then(response => {
-          console.log('Réponse des transactions:', response.data); 
-          
-          
-          if (Array.isArray(response.data)) {
-            setTransactions(response.data);
-          } else {
-            setError('Les transactions ne sont pas disponibles ou la réponse a un format inattendu.');
-          }
-        })
-        .catch(error => {
-          console.error('Erreur lors de la récupération des transactions:', error);
-          setError('Une erreur est survenue lors de la récupération des transactions.');
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-      } else {
-        setError('Token non trouvé.');
+  const [transactions, setTransactions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken'); 
+    console.log('Token récupéré:', token); 
+
+    if (token) {
+      const apiUrl = process.env.REACT_APP_API_URL; // Utiliser la variable d'environnement ici
+
+      axios.get(`${apiUrl}/api/v1/transactions`, {
+        headers: {
+          'Authorization': `Bearer ${token}`, 
+        },
+      })
+      .then(response => {
+        console.log('Réponse des transactions:', response.data); 
+        
+        if (Array.isArray(response.data)) {
+          setTransactions(response.data);
+        } else {
+          setError('Les transactions ne sont pas disponibles ou la réponse a un format inattendu.');
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des transactions:', error);
+        setError('Une erreur est survenue lors de la récupération des transactions.');
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    }, []); 
-  
-    
-    const handleDelete = (id) => {
-      const token = localStorage.getItem('authToken'); 
-  
-      if (token) {
-        axios.delete(`http://localhost:8000/api/v1/transactions/${id}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        })
-        .then(response => {
-          setSuccess('Transaction supprimée avec succès.');
-          setTransactions(transactions.filter(transaction => transaction.id !== id));
-        })
-        .catch(error => {
-          console.error('Erreur lors de la suppression de la transaction:', error);
-          setError('Une erreur est survenue lors de la suppression de la transaction.');
-        });
-      } else {
-        setError('Token non trouvé.');
-      }
-    };
+      });
+    } else {
+      setError('Token non trouvé.');
+      setLoading(false);
+    }
+  }, []); 
+
+  const handleDelete = (id) => {
+    const token = localStorage.getItem('authToken'); 
+
+    if (token) {
+      const apiUrl = process.env.REACT_APP_API_URL; 
+
+      axios.delete(`${apiUrl}/api/v1/transactions/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+      .then(response => {
+        setSuccess('Transaction supprimée avec succès.');
+        setTransactions(transactions.filter(transaction => transaction.id !== id));
+      })
+      .catch(error => {
+        console.error('Erreur lors de la suppression de la transaction:', error);
+        setError('Une erreur est survenue lors de la suppression de la transaction.');
+      });
+    } else {
+      setError('Token non trouvé.');
+    }
+  };
 
   return (
-     
     <div className="page-background-transactions">
       <div className="container-transactions">
         <h1 className="title-transactions">Historique des Transactions</h1>
@@ -80,17 +80,14 @@ const ListingTransactions = () => {
           </Link>
         </div>
 
-        
-
         <ul className="list-transactions">
           {transactions.length > 0 ? (
             transactions.map(transaction => (
-             <p  key={transaction.id} className="transaction-item">
-                 <Link to={`/show-transaction/${transaction.id}`}>
-  <button className="btn">Voir</button>
-</Link>
-
-                 <div className="transaction-name">{transaction.name}</div>
+              <li key={transaction.id} className="transaction-item">
+                <Link to={`/show-transaction/${transaction.id}`}>
+                  <button className="btn">Voir</button>
+                </Link>
+                <div className="transaction-name">{transaction.name}</div>
                 <div className="transaction-description">{transaction.description}</div>
                 <div className="transaction-amount">{transaction.amount} €</div>
                 <div className="transaction-date">{transaction.date}</div>
@@ -100,12 +97,10 @@ const ListingTransactions = () => {
                     <button>Modifier </button>
                   </Link>
                 </div>
-
                 <div className="delete-transaction-button">
                   <button onClick={() => handleDelete(transaction.id)}>Supprimer</button>
                 </div>
-
-              </p>
+              </li>
             ))
           ) : (
             <p>Aucune transaction trouvée.</p>
@@ -117,6 +112,7 @@ const ListingTransactions = () => {
 };
 
 export default ListingTransactions;
+
 
 
 

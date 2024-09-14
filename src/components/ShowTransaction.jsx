@@ -11,8 +11,9 @@ const ShowTransaction = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('authToken');
+        const apiUrl = process.env.REACT_APP_API_URL; 
 
-        axios.get(`http://localhost:8000/api/v1/transactions/${id}`, {
+        axios.get(`${apiUrl}/api/v1/transactions/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
             },
@@ -22,7 +23,6 @@ const ShowTransaction = () => {
 
             const transactionData = response.data.transaction || response.data;
 
-            
             const amount = parseFloat(transactionData.amount) || 0;
 
             const totalRevenue = transactionData.type === 'revenu' ? amount : 0;
@@ -47,11 +47,11 @@ const ShowTransaction = () => {
 
     return (
         <div className="page-background-transaction" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-             <div className="create-transaction-button">
-               <Link to="/transactions">
-                 <button>Retour</button>
-               </Link>
-             </div>
+            <div className="create-transaction-button">
+                <Link to="/transactions">
+                    <button>Retour</button>
+                </Link>
+            </div>
             <div className="card card-compact bg-base-100 w-96 shadow-xl" style={{ marginBottom: '20px' }}>
                 <div className="card-body">
                     <h2 className="card-title">{transaction.name}</h2>
@@ -69,6 +69,7 @@ const ShowTransaction = () => {
 };
 
 export default ShowTransaction;
+
 
 
 

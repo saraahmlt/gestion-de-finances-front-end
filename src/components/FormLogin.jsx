@@ -12,7 +12,7 @@ const FormLogin = () => {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
 
-  const navigate = useNavigate();  // Initialisez useNavigate
+  const navigate = useNavigate();  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +25,9 @@ const FormLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:8000/api/v1/login', formData)
+    const apiUrl = process.env.REACT_APP_API_URL; 
+
+    axios.post(`${apiUrl}/api/v1/login`, formData)
       .then(response => {
         console.log('Réponse complète de l\'API:', response.data);
 
@@ -38,7 +40,7 @@ const FormLogin = () => {
             password: '',
           });
           setErrors({});
-          navigate('/transactions');  // Redirige vers la page des transactions
+          navigate('/transactions');  
         } else {
           setMessage('Token non reçu. Vérifiez la réponse de l\'API.');
         }
@@ -102,6 +104,7 @@ const FormLogin = () => {
 };
 
 export default FormLogin;
+
 
 
 

@@ -16,6 +16,8 @@ const FormEditTransaction = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  const apiUrl = process.env.REACT_APP_API_URL; 
+
   useEffect(() => {
     const token = localStorage.getItem('authToken');
 
@@ -25,7 +27,7 @@ const FormEditTransaction = () => {
       return;
     }
 
-    axios.get(`http://localhost:8000/api/v1/transactions/${id}`, {
+    axios.get(`${apiUrl}/api/v1/transactions/${id}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -46,7 +48,7 @@ const FormEditTransaction = () => {
     .finally(() => {
       setLoading(false);
     });
-  }, [id]);
+  }, [id, apiUrl]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +61,7 @@ const FormEditTransaction = () => {
     }
 
     setLoading(true);
-    axios.put(`http://localhost:8000/api/v1/transactions/${id}`, {
+    axios.put(`${apiUrl}/api/v1/transactions/${id}`, {
       name,
       type,
       amount,
@@ -136,3 +138,4 @@ const FormEditTransaction = () => {
 };
 
 export default FormEditTransaction;
+
