@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
@@ -6,30 +6,32 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const TransactionChart = ({ data }) => {
     const canvasRef = useRef(null);
-    const [gradients, setGradients] = useState({
-        gradientRevenue: '#F572A3',
-        gradientExpenses: '#6EF9BF',
-    });
 
     useEffect(() => {
+       
         if (canvasRef.current) {
             const ctx = canvasRef.current.getContext('2d');
             if (ctx) {
                 const gradientRevenue = ctx.createLinearGradient(0, 0, 0, 400);
-                gradientRevenue.addColorStop(0, process.env.REACT_APP_GRADIENT_REVENUE_START || '#F572A3');
-                gradientRevenue.addColorStop(1, process.env.REACT_APP_GRADIENT_REVENUE_END || '#D5A2E9');
+                gradientRevenue.addColorStop(0, '#F572A3');
+                gradientRevenue.addColorStop(1, '#D5A2E9');
 
                 const gradientExpenses = ctx.createLinearGradient(0, 0, 0, 400);
-                gradientExpenses.addColorStop(0, process.env.REACT_APP_GRADIENT_EXPENSES_START || '#6EF9BF');
-                gradientExpenses.addColorStop(1, process.env.REACT_APP_GRADIENT_EXPENSES_END || '#62E4C3');
+                gradientExpenses.addColorStop(0, '#6EF9BF');
+                gradientExpenses.addColorStop(1, '#62E4C3');
 
-                setGradients({
+                setGradient({
                     gradientRevenue,
                     gradientExpenses,
                 });
             }
         }
     }, [data]);
+
+    const [gradients, setGradient] = React.useState({
+        gradientRevenue: '#F572A3',
+        gradientExpenses: '#6EF9BF',
+    });
 
     if (!data) {
         return <p>Chargement du graphique...</p>;
@@ -46,8 +48,8 @@ const TransactionChart = ({ data }) => {
                     gradients.gradientExpenses,
                 ],
                 borderColor: [
-                    process.env.REACT_APP_BORDER_COLOR_REVENUE || '#F572A3',
-                    process.env.REACT_APP_BORDER_COLOR_EXPENSES || '#6EF9BF'
+                    '#F572A3', 
+                    '#6EF9BF'
                 ],
                 borderWidth: 1,
             },
@@ -79,7 +81,6 @@ const TransactionChart = ({ data }) => {
 };
 
 export default TransactionChart;
-
 
 
 

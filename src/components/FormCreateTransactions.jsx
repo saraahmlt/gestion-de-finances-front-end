@@ -25,15 +25,8 @@ const FormCreateTransactions = () => {
       return;
     }
 
-    const apiUrl = process.env.REACT_APP_API_URL; 
-
-    if (!apiUrl) {
-      setError('URL de l\'API non définie.');
-      return;
-    }
-
     setLoading(true);
-    axios.post(`${apiUrl}/api/v1/transactions`, {
+    axios.post('http://localhost:8000/api/v1/transactions', {
       name,
       type,
       amount,
@@ -115,4 +108,3 @@ const FormCreateTransactions = () => {
 };
 
 export default FormCreateTransactions;
-

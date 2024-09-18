@@ -26,9 +26,7 @@ const FormRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const apiUrl = process.env.REACT_APP_API_URL; 
-
-    axios.post(`${apiUrl}/api/v1/register`, formData)
+    axios.post('http://localhost:8000/api/v1/register', formData)
       .then(response => {
         setMessage('Inscription réussie ! Vous pouvez maintenant vous connecter.');
         setFormData({
@@ -127,5 +125,4 @@ const FormRegister = () => {
 };
 
 export default FormRegister;
-
 
